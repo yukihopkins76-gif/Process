@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CreatorFlow | Content Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-icon"></div>
+                <span class="logo-text">CreatorFlow</span>
+            </div>
+            
+            <nav class="nav-menu">
+                <button class="nav-item active">
+                    <i class="ph ph-house"></i>
+                    <span>Dashboard</span>
+                </button>
+                <button class="nav-item">
+                    <i class="ph ph-youtube-logo"></i>
+                    <span>YouTube Studio</span>
+                </button>
+                <button class="nav-item">
+                    <i class="ph ph-instagram-logo"></i>
+                    <span>Instagram Feed</span>
+                </button>
+                <button class="nav-item">
+                    <i class="ph ph-chart-line-up"></i>
+                    <span>Analytics</span>
+                </button>
+                <button class="nav-item">
+                    <i class="ph ph-calendar-blank"></i>
+                    <span>Content Plan</span>
+                </button>
+                <button class="nav-item">
+                    <i class="ph ph-gear"></i>
+                    <span>Settings</span>
+                </button>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="btn btn-secondary btn-full">
+                    <i class="ph ph-question"></i>
+                    <span>Help Center</span>
+                </button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="search-container">
+                    <i class="ph ph-magnifying-glass"></i>
+                    <input type="text" placeholder="Search content, tags, or tasks...">
+                </div>
+                <div class="action-group">
+                    <button class="btn btn-secondary" id="theme-toggle">
+                        <i class="ph ph-moon"></i>
+                    </button>
+                    <button class="btn btn-primary" id="open-modal">
+                        <i class="ph ph-plus"></i>
+                        <span>Add Task</span>
+                    </button>
+                </div>
+            </header>
+
+            <section class="dashboard-grid">
+                <div class="stats-row">
+                    <div class="stat-card">
+                        <span class="stat-label">Total Views</span>
+                        <h2 class="stat-value">1.2M</h2>
+                        <span class="stat-trend positive">+12.5% vs last month</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-label">Engagement</span>
+                        <h2 class="stat-value">84.2k</h2>
+                        <span class="stat-trend positive">+5.2% vs last month</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-label">Uploads</span>
+                        <h2 class="stat-value">24</h2>
+                        <span class="stat-trend neutral">Same as last month</span>
+                    </div>
+                </div>
+
+                <div class="content-row">
+                    <div class="card content-planner">
+                        <div class="card-header">
+                            <h3>Content Planner</h3>
+                            <button class="btn btn-secondary btn-sm">View Calendar</button>
+                        </div>
+                        <div class="task-list" id="task-container">
+                            </div>
+                        <div class="card-footer">
+                            <button class="btn btn-primary btn-full" onclick="saveContentPlan()">
+                                Save Content Plan
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="card data-entry">
+                        <h3>Quick Data Entry</h3>
+                        <form id="data-form" class="standard-form">
+                            <div class="form-group">
+                                <label>Content Title</label>
+                                <input type="text" id="content-title" placeholder="e.g. My New YouTube Video" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Platform</label>
+                                <select id="platform-select">
+                                    <option value="youtube">YouTube</option>
+                                    <option value="instagram">Instagram</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Analytics (Views)</label>
+                                <input type="number" id="analytics-data" placeholder="0">
+                            </div>
+                            <div class="form-actions">
+                                <button type="button" class="btn btn-danger" onclick="resetForm()">Reset</button>
+                                <button type="submit" class="btn btn-primary">Add Analytics Data</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="quick-actions">
+                    <div class="card action-card">
+                        <i class="ph ph-video-camera"></i>
+                        <h4>Video Workflow</h4>
+                        <p>Manage your YouTube production stages.</p>
+                        <button class="btn btn-secondary">Mark as Uploaded</button>
+                    </div>
+                    <div class="card action-card">
+                        <i class="ph ph-camera"></i>
+                        <h4>Stories</h4>
+                        <p>Draft and schedule your IG stories.</p>
+                        <button class="btn btn-secondary" onclick="alert('Story Added!')">Add Story</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div class="modal-overlay" id="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Create New Task</h2>
+                <button class="close-btn" id="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Task Description</label>
+                    <input type="text" id="modal-task-input" placeholder="What needs to be done?">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancel-task">Cancel</button>
+                <button class="btn btn-primary" id="confirm-task">Add Task</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
