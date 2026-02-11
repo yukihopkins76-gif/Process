@@ -410,3 +410,7 @@ input:focus {
     .main-content { margin-left: 80px; }
     .content-row { grid-template-columns: 1fr; }
 }
+/* Modal ko active karne ke liye extra code */
+.modal-overlay.active {
+    display: flex !important;
+}
